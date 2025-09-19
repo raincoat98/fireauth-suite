@@ -22,10 +22,10 @@ Authentication Made Simple, Integration Made Seamless
 │
 ├── ⚛️ my-app/               # React Web Application
 │   ├── src/
-│   │   ├── components/     # UI Components
-│   │   ├── hooks/         # Custom Hooks
-│   │   ├── contexts/      # React Contexts
-│   │   └── lib/          # Firebase Configuration
+│   │   ├── components/     # UI Components (AuthButtons, EmailLogin, EmailSignup)
+│   │   ├── hooks/         # Custom Hooks (useAuth)
+│   │   ├── contexts/      # React Contexts (AuthContext)
+│   │   └── lib/          # Firebase Configuration & Auth Functions
 │   ├── dist/             # Build Output
 │   └── firebase.json     # Firebase Hosting Config
 │
@@ -45,6 +45,36 @@ Authentication Made Simple, Integration Made Seamless
     ├── PROJECT_INFO.md  # 프로젝트 상세 정보
     └── package.json     # 프로젝트 메타데이터
 ```
+
+## ✨ 주요 기능
+
+### 🔐 **Firebase Authentication**
+
+- **Google OAuth 로그인** - 간편한 소셜 로그인
+- **이메일/패스워드 로그인** - 전통적인 로그인 방식
+- **회원가입** - 이메일 기반 계정 생성 및 프로필 설정
+- **비밀번호 재설정** - 이메일을 통한 비밀번호 복구
+- **자동 세션 관리** - 브라우저 재시작 시에도 로그인 상태 유지
+- **실시간 인증 상태** - 로그인/로그아웃 상태 자동 감지
+
+### 🧩 **Chrome Extension (Manifest V3)**
+
+- Extension ↔ React App 통신
+- Offscreen Document 기반 Firebase Auth
+- 팝업 UI 및 백그라운드 처리
+
+### ⚛️ **React Web Application**
+
+- TypeScript + Vite 기반
+- 모던 React Hooks 패턴
+- 반응형 UI 컴포넌트
+- 환경변수 기반 설정
+
+### 🔐 **Standalone Auth Popup**
+
+- Chrome Extension 전용 인증 팝업
+- PostMessage 기반 통신
+- Firebase Hosting 배포
 
 ## 🚀 빠른 시작
 
