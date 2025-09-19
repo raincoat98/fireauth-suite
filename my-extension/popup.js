@@ -13,6 +13,10 @@ $btn.addEventListener("click", async () => {
 async function refreshUser() {
   try {
     const result = await chrome.runtime.sendMessage({ type: "GET_AUTH_STATE" });
+    if (result?.error) {
+      console.error("Storage API 에러:", result.error);
+      return;
+    }
     if (result?.user) renderUser(result.user);
   } catch (error) {
     console.error("인증 상태 확인 에러:", error);
@@ -33,9 +37,15 @@ function renderUser(user) {
   // 로그아웃 버튼 이벤트 리스너 추가
   document.getElementById("logout").addEventListener("click", async () => {
     try {
-      await chrome.runtime.sendMessage({ type: "LOGOUT" });
-      $user.innerHTML = "";
-      $btn.style.display = "block";
+      const result = await chrome.runtime.sendMessage({ type: "LOGOUT" });
+      if (result?.error) {
+        console.error("Storage API 에러:", result.error);
+        return;
+      }
+      if (result?.success) {
+        $user.innerHTML = "";
+        $btn.style.display = "block";
+      }
     } catch (error) {
       console.error("로그아웃 실패:", error);
     }
