@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "🔥 FireAuth Suite - Chrome Extension",
+  "version": "1.0.0",
+  "description": "Seamless Firebase Authentication for Chrome Extensions",
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "permissions": ["offscreen", "storage", "tabs"],
+  "host_permissions": [
+    "https://apis.google.com/*",
+    "https://www.gstatic.com/*",
+    "https://www.googleapis.com/*",
+    "https://securetoken.googleapis.com/*",
+    "https://bookmarkhub-5ea6c-sign.web.app/*",
+    "https://bookmarkhub-5ea6c.web.app/*"
+  ],
+  "externally_connectable": {
+    "matches": ["https://bookmarkhub-5ea6c.web.app/*"]
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'; frame-src 'self' https://bookmarkhub-5ea6c-sign.web.app; connect-src 'self' https://apis.google.com https://www.googleapis.com https://securetoken.googleapis.com https://www.gstatic.com https://identitytoolkit.googleapis.com;"
+  },
+  "minimum_chrome_version": "109"
+}
